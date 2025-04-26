@@ -1,0 +1,90 @@
+{
+  "name": "react-admin",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "https://splinx-server.onrender.com",
+  "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@fullcalendar/core": "^6.1.15",
+    "@fullcalendar/daygrid": "^5.11.5",
+    "@fullcalendar/interaction": "^5.11.5",
+    "@fullcalendar/list": "^5.11.5",
+    "@fullcalendar/react": "^6.1.15",
+    "@fullcalendar/timegrid": "^5.11.5",
+    "@mui/icons-material": "^5.16.7",
+    "@mui/material": "^5.16.7",
+    "@mui/x-data-grid": "^5.17.26",
+    "@mui/x-date-pickers": "^7.18.0",
+    "@nivo/annotations": "^0.80.0",
+    "@nivo/arcs": "^0.80.0",
+    "@nivo/axes": "^0.80.0",
+    "@nivo/bar": "^0.80.0",
+    "@nivo/colors": "^0.80.0",
+    "@nivo/core": "^0.80.0",
+    "@nivo/geo": "^0.80.0",
+    "@nivo/line": "^0.80.0",
+    "@nivo/pie": "^0.80.0",
+    "@reduxjs/toolkit": "^1.9.7",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "ajv": "^6.12.6",
+    "axios": "^1.7.7",
+    "chart.js": "^3.9.1",
+    "d3-scale": "^4.0.2",
+    "dayjs": "^1.11.13",
+    "formik": "^2.4.6",
+    "framer-motion": "^11.8.0",
+    "moment": "^2.30.1",
+    "react": "^18.3.1",
+    "react-chartjs-2": "^4.3.1",
+    "react-dom": "^18.3.1",
+    "react-pro-sidebar": "^0.7.1",
+    "react-quill": "^2.0.0",
+    "react-redux": "^8.1.3",
+    "react-router-dom": "^6.26.2",
+    "react-scripts": "^5.0.1",
+    "react-spinners": "^0.14.1",
+    "react-toastify": "^10.0.5",
+    "recharts": "^2.12.7",
+    "sweetalert2": "^11.14.1",
+    "web-vitals": "^2.1.4",
+    "yup": "^1.4.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@aws-amplify/backend": "^1.3.1",
+    "@aws-amplify/backend-cli": "^1.2.9",
+    "@babel/plugin-transform-private-property-in-object": "^7.21.11",
+    "aws-cdk": "^2.160.0",
+    "aws-cdk-lib": "^2.160.0",
+    "constructs": "^10.3.0",
+    "esbuild": "^0.24.0",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2"
+  }
+}
