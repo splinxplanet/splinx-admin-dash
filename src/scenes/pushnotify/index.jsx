@@ -114,7 +114,7 @@ const PushNotification = () => {
     { field: "title", headerName: "Subject", flex: 1 },
     { field: "message", headerName: "Message", flex: 1 },
     { field: "type", headerName: "Type", flex: 1 },
-    { field: "read", headerName: "Status", flex: 1 },
+    { field: "read", headerName: "Read Status", flex: 1 },
 
     {
       field: "actions",

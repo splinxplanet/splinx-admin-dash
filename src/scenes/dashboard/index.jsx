@@ -158,7 +158,7 @@ const Dashboard = () => {
               color={colors.greenAccent[500]}
               sx={{ mt: "15px" }}
             >
-              $48,352 revenue generated
+              $0.00 revenue generated
             </Typography>
             <Typography>Splinx In-app Advertisement </Typography>
           </Box>
