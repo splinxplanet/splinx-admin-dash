@@ -82,7 +82,7 @@ function App() {
 
                       {/* Routes accessible by both superadmin and admin */}
                       <Route path="/events" element={<EventManager />} />
-                      <Route path="/withdrawal" element={<WithdrawalRequest />} />
+                      <Route path="/withdrawals" element={<WithdrawalRequest />} />
                       <Route path="/promo-code" element={<PromoCodeManager />} />
                       <Route path="/push-notification" element={<PushNotificationManager />} />
                       <Route path="/email-notification" element={<EmailNotification />} />

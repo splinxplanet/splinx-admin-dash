@@ -1,4 +1,4 @@
-export const eventViewFields = [
+export const requestFields = [
     { label: 'Event Name', name: 'eventName' },
     { label: 'Description', name: 'eventDescription' },
     { label: 'Image URL', name: 'eventImage' },

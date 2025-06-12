@@ -401,6 +401,25 @@ const EditEvent = () => {
                 }}
               />
             </Grid>
+            <Grid item xs={12} sm={6}>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={formData.isPopular || false}
+                  onChange={handleChange}
+                  name="isPopular"
+                  sx={{
+                    color: colors.greenAccent[500],
+                    '&.Mui-checked': {
+                      color: colors.greenAccent[500],
+                    },
+                  }}
+                />
+              }
+              label="Mark as Popular Event"
+              sx={{ color: "#fff" }}
+            />
+          </Grid>
 
             {/* Event Hashtag */}
             <Grid item xs={12}>

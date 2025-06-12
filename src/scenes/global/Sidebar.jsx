@@ -200,8 +200,22 @@ const Sidebar = () => {
                 />
 
                 <Item
+                  title="Event Manager"
+                  to="/events"
+                  icon={<span className="material-symbols-outlined">campaign</span>}
+                  selected={selected}
+                  setSelected={setSelected}
+                />
+                <Item
                   title="Advert Manager"
                   to="/advert-manager"
+                  icon={<span className="material-symbols-outlined">campaign</span>}
+                  selected={selected}
+                  setSelected={setSelected}
+                />
+                <Item
+                  title="Withdrawal Manager"
+                  to="/withdrawals"
                   icon={<span className="material-symbols-outlined">campaign</span>}
                   selected={selected}
                   setSelected={setSelected}
