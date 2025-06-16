@@ -27,7 +27,6 @@ const RequestModal = ({
 }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  console.log("RequestModal recordData:", recordData);
 
   const style = {
     position: "absolute",
@@ -115,7 +114,7 @@ const RequestModal = ({
               <Divider sx={{ my: 2 }} />
               <Grid container spacing={2} rowSpacing={1}>
                 {/* request Date */}
-                <Grid item xs={12} sm={6} key="eventDate">
+                <Grid item xs={12} sm={6}mkey="requestDate">
                   <Box display="flex" alignItems="center" mb={1}>
                     <Typography
                       sx={{
@@ -123,10 +122,10 @@ const RequestModal = ({
                         color: colors.greenAccent[500],
                       }}
                     >
-                      Date:
+                      Request Date:
                     </Typography>
                     <Typography sx={{ ml: 1 }}>
-                      {moment(recordData.eventDate).format("MMMM Do YYYY")}
+                      {moment(recordData.createdAt).format("MMMM Do YYYY")}
                     </Typography>
                   </Box>
                 </Grid>
@@ -231,8 +230,7 @@ const RequestModal = ({
                   </Box>
                 </Grid>
 
-                {/* Event Hashtag */}
-                <Grid item xs={12} sm={6} key="Event Date">
+                <Grid item xs={12} sm={6} key="holdDate">
                   <Box display="flex" alignItems="center" mb={1}>
                     <Typography
                       sx={{
@@ -243,10 +241,11 @@ const RequestModal = ({
                       Event Date:
                     </Typography>
                     <Typography sx={{ ml: 1 }}>
-                      {recordData.eventHashtag || "N/A"}
+                      {recordData?.holdDate ? moment(recordData.holdDate).format("MMMM Do YYYY") : "N/A"}
                     </Typography>
                   </Box>
                 </Grid>
+
               </Grid>
               {/* Buttons (Full Width) */}
               <Grid item xs={12} mt={4} display="flex" justifyContent="center">

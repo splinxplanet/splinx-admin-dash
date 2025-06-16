@@ -21,9 +21,9 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useTheme } from "@mui/material/styles";
 import { tokens } from "../../theme"; // Adjust this import as necessary
 import AuthContext from "../../context/AuthContext";
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 import Swal from "sweetalert2";
-
+import uploadImage from "../../utils/uploadImg";
 
 const CreateNewAdmin = ({ handleCancel }) => {
   const apiUrl = process.env.REACT_APP_API_URL;
@@ -125,13 +125,18 @@ const CreateNewAdmin = ({ handleCancel }) => {
     setLoading(true);
 
     try {
+      // 1. Upload the image if a file is selected
+      const imageUrl = await uploadImage(formData.profileImage, apiUrl, token);
       const response = await fetch(`${apiUrl}/admin/admin-create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          profileImage: imageUrl,
+        }),
       });
 
       if (!response.ok) {
@@ -141,7 +146,9 @@ const CreateNewAdmin = ({ handleCancel }) => {
       }
 
       clearForm();
-      setSuccess(`${formData.firstName} ${formData.lastName} has been added successfully! Click Cancel to close form.`);
+      setSuccess(
+        `${formData.firstName} ${formData.lastName} has been added successfully! Click Cancel to close form.`
+      );
 
       // Move success message clear after 3 seconds
       setTimeout(() => {
@@ -151,10 +158,10 @@ const CreateNewAdmin = ({ handleCancel }) => {
       setLoading(false);
 
       // Display success message popup
-       Swal.fire(
-         `Success!`,
-         `${formData.firstName} ${formData.lastName} has been added successfully!`,
-         "success"
+      Swal.fire(
+        `Success!`,
+        `${formData.firstName} ${formData.lastName} has been added successfully!`,
+        "success"
       );
       setError("");
     } catch (error) {
@@ -175,7 +182,11 @@ const CreateNewAdmin = ({ handleCancel }) => {
         xs={12}
         sx={{ display: "flex", justifyContent: "space-between" }}
       >
-        <Typography variant="h2" fontWeight="600" color={colors.greenAccent[500]}>
+        <Typography
+          variant="h2"
+          fontWeight="600"
+          color={colors.greenAccent[500]}
+        >
           Create New Admin
         </Typography>
         <Button
@@ -248,6 +259,7 @@ const CreateNewAdmin = ({ handleCancel }) => {
                   }}
                 />
               </Grid>
+
               <Grid item xs={12} sm={6}>
                 <TextField
                   fullWidth
@@ -276,6 +288,7 @@ const CreateNewAdmin = ({ handleCancel }) => {
                   }}
                 />
               </Grid>
+
               <Grid item xs={12} sm={6}>
                 <TextField
                   fullWidth
@@ -304,6 +317,7 @@ const CreateNewAdmin = ({ handleCancel }) => {
                   }}
                 />
               </Grid>
+
               <Grid item xs={12} sm={6}>
                 <TextField
                   fullWidth
@@ -345,6 +359,7 @@ const CreateNewAdmin = ({ handleCancel }) => {
                   }}
                 />
               </Grid>
+
               <Grid item xs={12} sm={6}>
                 <TextField
                   fullWidth
@@ -373,6 +388,7 @@ const CreateNewAdmin = ({ handleCancel }) => {
                   }}
                 />
               </Grid>
+
               <Grid item xs={12} sm={6}>
                 <TextField
                   fullWidth
@@ -401,6 +417,7 @@ const CreateNewAdmin = ({ handleCancel }) => {
                   }}
                 />
               </Grid>
+
               <Grid item xs={12}>
                 <TextField
                   fullWidth
@@ -429,6 +446,7 @@ const CreateNewAdmin = ({ handleCancel }) => {
                   }}
                 />
               </Grid>
+
               <Grid item xs={12} sm={6}>
                 <TextField
                   fullWidth
@@ -457,6 +475,7 @@ const CreateNewAdmin = ({ handleCancel }) => {
                   }}
                 />
               </Grid>
+
               <Grid item xs={12} sm={6}>
                 <TextField
                   fullWidth
@@ -485,6 +504,7 @@ const CreateNewAdmin = ({ handleCancel }) => {
                   }}
                 />
               </Grid>
+
               <Grid item xs={12} sm={6}>
                 <FormControl fullWidth variant="outlined" required>
                   <InputLabel>Role</InputLabel>
@@ -509,10 +529,34 @@ const CreateNewAdmin = ({ handleCancel }) => {
                     <MenuItem value="admin">Admin</MenuItem>
                   </Select>
                 </FormControl>
-
-
               </Grid>
+              {/* upload profiel image */}
               <Grid item xs={12} sm={6}>
+                <Button
+                  variant="contained"
+                  component="label"
+                  sx={{ backgroundColor: "#ffb554", color: "#000" }}
+                >
+                  Upload Staff Profile Image (PNG, JPG, JPEG)
+                  <input
+                    type="file"
+                    accept="image/*"
+                    hidden
+                    onChange={(e) =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        profileImage: e.target.files[0],
+                      }))
+                    }
+                  />
+                </Button>
+                {formData.profileImage && (
+                  <Typography variant="body2" color="#fff" mt={1}>
+                    Selected: {formData.profileImage.name}
+                  </Typography>
+                )}
+              </Grid>
+              {/* <Grid item xs={12} sm={6}>
                 <TextField
                   fullWidth
                   variant="outlined"
@@ -539,7 +583,8 @@ const CreateNewAdmin = ({ handleCancel }) => {
                     },
                   }}
                 />
-              </Grid>
+              </Grid> */}
+
               <Grid item xs={12}>
                 <Typography variant="h6" color={colors.grey[100]}>
                   Next of Kin
@@ -659,7 +704,9 @@ const CreateNewAdmin = ({ handleCancel }) => {
               </Grid>
 
               <Grid container justifyContent="center" alignItems="center">
-                <Grid item md={4}> {/* Adjust size as needed */}
+                <Grid item md={4}>
+                  {" "}
+                  {/* Adjust size as needed */}
                   <Button
                     type="submit"
                     fullWidth
