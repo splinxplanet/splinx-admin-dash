@@ -22,7 +22,6 @@ const ViewEventModal = ({
   open,
   onClose,
   recordData,
-  fields,
   handleEdit,
   handleDelete,
 }) => {
