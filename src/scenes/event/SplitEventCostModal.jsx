@@ -25,7 +25,7 @@ const EventCostSplitModal = ({ open, handleClose, event }) => {
   const colors = tokens(theme.palette.mode);
 
   const [selectedMembers, setSelectedMembers] = useState({});
-  const [splitPercentages, setSplitPercentages] = useState({});
+  const [, setSplitPercentages] = useState({});
 
   useEffect(() => {
     // Initialize the selected members state

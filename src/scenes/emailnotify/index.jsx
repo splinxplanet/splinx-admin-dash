@@ -41,7 +41,6 @@ const EmailNotification = () => {
   const [emailData, setEmailData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [openCreateEmail, setOpenCreateEmail] = useState(false);
-  const [openEditEmail, setOpenEditEmail] = useState(false);
 
   const fetchEmails = useCallback(async () => {
     setIsLoading(true);
@@ -63,7 +62,7 @@ const EmailNotification = () => {
 
   useEffect(() => {
     fetchEmails();
-  }, [fetchEmails, openCreateEmail, openEditEmail]);
+  }, [fetchEmails, openCreateEmail]);
 
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);

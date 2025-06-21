@@ -1,5 +1,12 @@
 {
   "rules": {
     "no-unused-vars": "warn"
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   }
 }
