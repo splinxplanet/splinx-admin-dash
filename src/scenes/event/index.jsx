@@ -229,7 +229,7 @@ const EventManager = () => {
       field: "createdBy",
       headerName: "Created By",
       flex: 1,
-      valueGetter: (params) => {
+      valueGetter: () => {
         return "Splinx Admin";
       },
     },

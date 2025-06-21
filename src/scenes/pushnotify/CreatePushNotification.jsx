@@ -22,9 +22,6 @@ import Swal from "sweetalert2";
 const CreatePushNotification = ({ handleCancel }) => {
   const {
     data: customerData,
-    isLoading,
-    error,
-    refetch,
   } = useFetchData("/user/get-all-users");
   const apiUrl = process.env.REACT_APP_API_URL;
   const { token } = useContext(AuthContext);
@@ -48,9 +45,9 @@ const CreatePushNotification = ({ handleCancel }) => {
   };
 
   // Handle message input (Rich Text Editor)
-  const handleMessageChange = (content) => {
-    setFormData((prev) => ({ ...prev, message: content }));
-  };
+  // const handleMessageChange = (content) => {
+  //   setFormData((prev) => ({ ...prev, message: content }));
+  // };
 
   // Handle form submission
   const handleSubmit = async (e) => {

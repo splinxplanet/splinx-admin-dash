@@ -23,7 +23,6 @@ const ViewAdvertModal = ({
   recordData,
   handleEdit,
   handleDelete,
-  handlePauseToggle,
 }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);

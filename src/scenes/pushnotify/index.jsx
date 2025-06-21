@@ -41,7 +41,7 @@ const PushNotification = () => {
   const [pushNotifications, setPushNotifications] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [openCreatePushNotification, setOpenCreatePushNotification] = useState(false);
-  const [openEditPushNotification, setOpenEditPushNotification] = useState(false);
+  // const [openEditPushNotification, setOpenEditPushNotification] = useState(false);
 
   const fetchPushNotifications = useCallback(async () => {
     setIsLoading(true);
@@ -63,7 +63,7 @@ const PushNotification = () => {
 
   useEffect(() => {
     fetchPushNotifications();
-  }, [fetchPushNotifications, openCreatePushNotification, openEditPushNotification]);
+  }, [fetchPushNotifications, openCreatePushNotification]);
 
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);

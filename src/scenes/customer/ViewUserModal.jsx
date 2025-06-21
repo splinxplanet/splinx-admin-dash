@@ -14,8 +14,6 @@ const ViewUserModal = ({
   open,
   onClose,
   recordData,
-  fields,
-  handleEdit,
   handleDelete,
   handleExtend,
   handleStopPlan,

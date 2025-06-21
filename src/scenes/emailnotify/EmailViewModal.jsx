@@ -21,7 +21,6 @@ const EmailViewModal = ({
   open,
   onClose,
   emailSelected,
-  handleEdit,
   handleDelete,
 }) => {
   const theme = useTheme();

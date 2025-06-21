@@ -7,7 +7,6 @@ import {
   Grid,
   Button,
   IconButton,
-  Chip,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { tokens } from "../../theme";

@@ -22,7 +22,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
 import Swal from 'sweetalert2';
 
-const CreatePromoCode = ({ handleCancel, onSubmit, updatePromoList }) => {
+const CreatePromoCode = ({ handleCancel, updatePromoList }) => {
     const apiUrl = process.env.REACT_APP_API_URL;
     const { token } = useContext(AuthContext);
     const theme = useTheme();

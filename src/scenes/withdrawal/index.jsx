@@ -29,7 +29,6 @@ import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { toast } from "react-toastify";
 import AuthContext from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import moment from "moment";
 import EditIcon from "@mui/icons-material/Edit";
@@ -40,7 +39,7 @@ import { requestFields } from "./requestField";
 
 const WithdrawalRequest = () => {
   const apiUrl = process.env.REACT_APP_API_URL;
-  const { token, user } = useContext(AuthContext);
+  const { token } = useContext(AuthContext);
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [openViewModal, setOpenViewModal] = useState(false);
@@ -121,11 +120,11 @@ const WithdrawalRequest = () => {
     setOpenViewModal(false);
   };
 
-  const handleApproval = (event) => {
+  const handleApproval = () => {
     handleClose();
     alert("Approve me")
   };
-  const handleDecline = (event) => {
+  const handleDecline = () => {
     handleClose();
     alert("Decline me")
   };
