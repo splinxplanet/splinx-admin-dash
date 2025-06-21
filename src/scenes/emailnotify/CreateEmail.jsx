@@ -30,9 +30,6 @@ import Swal from "sweetalert2";
 const CreateEmail = ({ handleCancel }) => {
   const {
     data: customerData,
-    isLoading,
-    error,
-    refetch,
   } = useFetchData("/user/get-all-users");
   const apiUrl = process.env.REACT_APP_API_URL;
   const { token, user } = useContext(AuthContext);
