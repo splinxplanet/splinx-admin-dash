@@ -120,13 +120,91 @@ const WithdrawalRequest = () => {
     setOpenViewModal(false);
   };
 
-  const handleApproval = () => {
+  const handleApproval = async (event) => {
     handleClose();
-    alert("Approve me")
+    const eventId = event._id;
+    try {
+      const result = await Swal.fire({
+        title: "Are you sure you want to approve this withdrawal request?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: colors.greenAccent[600],
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, approve it!",
+      });
+
+      if (result.isConfirmed) {
+        const response = await fetch(`${apiUrl}/withdrawal/approval/${eventId}`, {
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (response.ok) {
+          Swal.fire("Approved!", "The withdrawal request has been approved.", "success")
+            .then(
+              () =>
+                // Refresh the list of withdrawals after successful deletion
+                fetchWithdrawalRequest()
+            );
+        } else {
+          try {
+            const errorData = await response.json();
+            toast.error(errorData.message || "Error approving withdrawal.");
+          } catch (jsonError) {
+            toast.error("Failed to approve withdrawal. Please try again later.");
+          }
+        }
+      }
+    } catch (error) {
+      toast.error("An error occurred while approving the withdrawal request.");
+    }
   };
-  const handleDecline = () => {
+  const handleDecline = async (event) => {
     handleClose();
-    alert("Decline me")
+    const eventId = event._id;
+    try {
+      const result = await Swal.fire({
+        title: "Are you sure you want to decline this withdrawal request?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: colors.greenAccent[600],
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, decline it!",
+      });
+
+      if (result.isConfirmed) {
+        const response = await fetch(`${apiUrl}/withdrawal/denied/${eventId}`, {
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (response.ok) {
+          Swal.fire("Declined!", "The withdrawal request has been declined.", "success")
+            .then(
+              () =>
+                // Refresh the list of withdrawals after successful deletion
+                fetchWithdrawalRequest()
+            );
+        } else {
+          try {
+            const errorData = await response.json();
+            toast.error(errorData.message || "Error declining withdrawal.");
+          } catch (jsonError) {
+            toast.error("Failed to decline withdrawal. Please try again later.");
+          }
+        }
+      }
+    } catch (error) {
+      toast.error("An error occurred while declining the withdrawal request.");
+    }
   };
 
   const handleDelete = async (event) => {
