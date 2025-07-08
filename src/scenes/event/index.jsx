@@ -221,7 +221,7 @@ const EventManager = () => {
       headerName: "Budget",
       width: 70,
       renderCell: (params) => {
-        return <span>${params.value.toLocaleString()}</span>; // Format the value as needed
+        return <span>${params?.value?.toLocaleString()}</span>; // Format the value as needed
       },
     },
     { field: "eventCategory", headerName: "Category", flex: 1 },

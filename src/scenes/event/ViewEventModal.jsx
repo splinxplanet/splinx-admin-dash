@@ -89,7 +89,7 @@ const ViewEventModal = ({
                       sx={{ fontWeight: "bold", fontSize: 16 }}
                     />
                     <Chip
-                      label={`₦${recordData.eventCost}`}
+                      label={`$${recordData.eventCost}`}
                       size="medium"
                       sx={{
                         fontWeight: "bold",
