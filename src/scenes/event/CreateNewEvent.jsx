@@ -32,6 +32,7 @@ const CreateNewEvent = ({ handleCancel }) => {
   const [formData, setFormData] = useState({
     eventCreator: user._id,
     eventName: "",
+    eventBy: "admin",
     eventDescription: "",
     eventImage: "",
     eventDate: dayjs(),
