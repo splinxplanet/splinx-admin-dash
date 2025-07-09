@@ -36,6 +36,7 @@ const EditEvent = () => {
 
   const [formData, setFormData] = useState({
     eventName: "",
+    eventBy: "admin",
     eventDescription: "",
     eventImage: "",
     eventDate: dayjs(),
@@ -67,13 +68,13 @@ const EditEvent = () => {
         }
 
         const data = await response.json();
-        console.log("Single data", data);
         // destructure event data
         // setFormData to the data received from the API
         if (data.event) {
           const { event } = data;
           setFormData({
             eventName: event.eventName,
+            eventBy: "admin",
             eventDescription: event.eventDescription,
             eventImage: event.eventImage,
             eventDate: dayjs(event.eventDate),
